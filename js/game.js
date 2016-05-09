@@ -8,6 +8,26 @@ var player2Total = 0;
 
 //winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
 
+var positions = [
+  NaN, NaN, NaN, NaN,
+  NaN, NaN, NaN, NaN,
+  NaN, NaN, NaN, NaN
+];
+
+var player1 = 'X';
+var player2 = 'O';
+
+function setNextTurn(){
+  if (currentPlayer = player1) {
+    currentPlayer = player2;
+  }
+  else {
+    currentPlayer = player1;
+  }
+  //update text
+}
+
+
 
 getWinner = function(move){
   var result = false;
