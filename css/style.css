@@ -1,24 +1,26 @@
 #board {
   border: 1px solid black;
-  width: 100%;
-  max-width: 1200px;
-  height: 100%;
-  /*put on the bottom*/
-  z-index: -1;
-  /*For gutters later*/
-  box-sizing: border-box;
 }
 
 #board .position {
   box-sizing: border-box;
+  float: left;
+  width: 100px;
+  height: 100px;
 }
 
 #board .position:hover {
   /*Add a hover effect*/
+  background: pink;
 }
-#board .space {
-  /*Add X or O images here*/
-  background: url("");
+#board .space.X {
+  /*Add X images here*/
+  background: url("O.png");
+  background-size: 100% 100%;
+}
+#board .space.O {
+  /*Add X images here*/
+  background: url("X.png");
   background-size: 100% 100%;
 }
 /*Change @media queries for smaller size screens*/
