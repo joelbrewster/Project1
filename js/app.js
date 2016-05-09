@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
   //How many wins
-  var player1Wins = 0;
-  var player2Wins = 0;
+  var playerXWins = 0;
+  var playerOWins = 0;
 
   //Total num of wins
-  var player1Total = 0;
-  var player2Total = 0;
+  var playerXTotal = 0;
+  var playerOTotal = 0;
 
   //winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
 
@@ -18,17 +18,18 @@ $(document).ready(function() {
   ];
 
   //Player vars
-  var player1 = 'X';
-  var player2 = 'O';
+  var playerX = 'X';
+  var playerO = 'O';
   var currentPlayer = null;
 
   function setNextTurn(){
-    if (currentPlayer === player1) {
-      currentPlayer = player2;
+    if (currentPlayer === playerX) {
+      currentPlayer = playerO;
     }
     else {
-      currentPlayer = player1;
+      currentPlayer = playerX;
     }
+    //TODO
     //update text
   }
 
@@ -68,6 +69,6 @@ $(document).ready(function() {
 
     checkForWinner();
     setNextTurn();
+  });
 
-  }
 });
