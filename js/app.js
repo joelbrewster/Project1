@@ -15,38 +15,33 @@ $(document).ready(function() {
     'padding': '20'
   });
 
-  $('.col1,.col2,.col3,.col4').mouseover(function() {
-    $(this)
-    .css({
-      'background-color':'black',
-      'transform': 'scale(1.05)'
-    });
-  });
-  $('.col1,.col2,.col3,.col4').mouseout(function() {
-    $(this)
-    .css({
-      'background-color':'transparent',
-      'transform':'none'
-    });
-  });
-  //Add mouse over sound click
+  //mouse over stuff
+  //$('.col1,.col2,.col3,.col4').mouseover(function() {
+    //$(this)
+    //.css({
+      //'background-color':'green',
+      //'transform': 'scale(1.05)'
+    //});
+  //});
+  //$('.col1,.col2,.col3,.col4').mouseout(function() {
+    //$(this)
+    //.css({
+      //'background-color':'transparent',
+      //'transform':'none'
+    //});
+  //});
 
-  $('.col1').on('click', function(){
-  //$(this)
-  //Append text to div later
-  //Fix up overflow
-  //.append('<img src="assets/giphy.gif" alt="">')
-  //.css({'width': '1'});
+  var divs = $('<div>');
+  divs.onClick=getMove(this);
 
   function startGame(){
     document.turn = "x";
     console.log(document.turn + "starts.");
   }
 
-  function getMove(FIXMEdiv){
-    //Need to sort html divs
-    //TODO
-    FIXMEdiv.innerText = document.turn;
+  function getMove(columns){
+    columns.innerText = document.turn;
+    changeTurn();
   }
 
   function changeTurn(){
@@ -55,7 +50,6 @@ $(document).ready(function() {
     } else {
       document.turn = "X";
       }
-    }
-  });
+      console.log(document.turn);
+  }
 });
-
