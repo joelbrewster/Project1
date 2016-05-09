@@ -15,25 +15,6 @@ div {
   box-sizing: border-box;
 }
 
-/*Row elements keep columns inside - stop overflow*/
-/*DRY*/
-
-.row1 {
-  padding: 2px;
-}
-
-.row2 {
-  padding: 2px;
-}
-
-.row3 {
-  padding: 2px;
-}
-
-.row4 {
-  padding: 2px;
-}
-
 .row1:before, .row1:after {
   content: "";
   display: table;

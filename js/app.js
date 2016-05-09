@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
-  var body = $('body');
+  var rows = $('.row1, .row2, .row3, .row4');
 
-  body.css({
-    'text-align': 'center'
+  rows.css({
+    'text-align': 'center',
+    'padding': '2'
   });
 
   //refactor me
