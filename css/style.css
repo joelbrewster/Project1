@@ -1,5 +1,8 @@
-* {
-  border: "solid 1px black";
+div {
+  border: 1px solid black;
+  background: white;
+  box-sizing: border-box;
+
 }
 .board {
   border: 1px solid black;
@@ -14,20 +17,25 @@
 
 /*Row elements keep columns inside - stop overflow*/
 /*DRY*/
+
 .row1 {
-  padding: 10px;
+  text-align: center;
+  padding: 2px;
 }
 
 .row2 {
-  padding: 10px;
+  text-align: center;
+  padding: 2px;
 }
 
 .row3 {
-  padding: 10px;
+  text-align: center;
+  padding: 2px;
 }
 
 .row4 {
-  padding: 10px;
+  text-align: center;
+  padding: 2px;
 }
 
 .row1:before, .row1:after {
@@ -61,21 +69,25 @@
 .col1 {
   float: left;
   width: 25%;
+  padding: 2%;
 }
 
 .col2 {
   float: left;
   width: 25%;
+  padding: 2%;
 }
 
 .col3 {
   float: left;
   width: 25%;
+  padding: 2%;
 }
 
 .col4 {
   float: left;
   width: 25%;
+  padding: 2%;
 }
 
 /*Change @media queries for smaller size screens*/
