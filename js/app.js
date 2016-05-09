@@ -9,8 +9,8 @@ var body = $('body');
 //refactor me
 $('.col1').mouseover(function() {
   $(this).css({
-    'background-color':'seagreen',
-    'transform': 'scale(1.2)'
+    'background-color':'black',
+    'transform': 'scale(1.05)'
   });
 });
 $('.col1').mouseout(function() {
@@ -22,8 +22,8 @@ $('.col1').mouseout(function() {
 
 $('.col2').mouseover(function() {
   $(this).css({
-    'background-color':'seagreen',
-    'transform': 'scale(1.2)'
+    'background-color':'black',
+    'transform': 'scale(1.05)'
   });
 });
 $('.col2').mouseout(function() {
@@ -35,8 +35,8 @@ $('.col2').mouseout(function() {
 
 $('.col3').mouseover(function() {
   $(this).css({
-    'background-color':'seagreen',
-    'transform': 'scale(1.2)'
+    'background-color':'black',
+    'transform': 'scale(1.05)'
   });
 });
 $('.col3').mouseout(function() {
@@ -48,8 +48,8 @@ $('.col3').mouseout(function() {
 
 $('.col4').mouseover(function() {
   $(this).css({
-    'background-color':'seagreen',
-    'transform': 'scale(1.2)'
+    'background-color':'black',
+    'transform': 'scale(1.05)'
   });
 });
 $('.col4').mouseout(function() {
