@@ -8,8 +8,6 @@ $(document).ready(function() {
   var playerXTotal = 0;
   var playerOTotal = 0;
 
-  //winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
-
   var position = [
     NaN, NaN, NaN, NaN,
     NaN, NaN, NaN, NaN,
@@ -70,6 +68,9 @@ $(document).ready(function() {
 
     checkForWinner();
     setNextTurn();
+  });
+  $(document).on('gameWin', function (winner) {
+    //Alert Winner
   });
   setNextTurn();
 });
