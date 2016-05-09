@@ -31,6 +31,7 @@ $(document).ready(function() {
     }
     //TODO
     //update text
+    $('#messages').text(currentPlayer);
   }
 
   function checkForWinner(){
@@ -70,5 +71,5 @@ $(document).ready(function() {
     checkForWinner();
     setNextTurn();
   });
-
+  setNextTurn();
 });
