@@ -6,18 +6,19 @@ var player2Wins = 0;
 var player1Total = 0;
 var player2Total = 0;
 
-winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
+//winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
 
 
-getWinner = function(score){
-  for(var i = 0; i < winnerNumbers.length; i++){
-    if (winnerNumbers[i] == winnerNumbers[i]){}
-      console.log("Huh!?");
+getWinner = function(move){
+  var result = false;
 
+  result = true;
   }
+  return result;
 };
 
 //set div's to empty
+document.getElementById().innerText = "";
 
 //Get player order
   //Player 1 first
