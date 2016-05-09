@@ -1,3 +1,6 @@
+* {
+  border: "solid 1px black";
+}
 .board {
   border: 1px solid black;
   width: 100%;
@@ -10,24 +13,43 @@
 }
 
 /*Row elements keep columns inside - stop overflow*/
+/*DRY*/
 .row1 {
 
 }
 
-.row1 {
+.row2 {
 
 }
 
-.row1 {
+.row3 {
 
 }
 
-.row1 {
+.row4 {
 
 }
 
-/*TODO Look into clearfix again - Need it here?*/
-.row:before, .row:after {
+.row1:before, .row1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row2:before, .row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.row3:before, .row3:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row4:before, .row4:after {
   content: "";
   display: table;
   clear: both;
@@ -37,23 +59,23 @@
   /*Maybe set all colums to a common class?*/
   /*Remember gutters*/
 .col1 {
+  float: left;
   width: 25%;
-  padding: 10px;
 }
 
 .col2 {
+  float: left;
   width: 25%;
-  padding: 10px;
 }
 
 .col3 {
+  float: left;
   width: 25%;
-  padding: 10px;
 }
 
 .col4 {
+  float: left;
   width: 25%;
-  padding: 10px;
 }
 
 /*Change @media queries for smaller size screens*/
