@@ -18,7 +18,7 @@ var player1 = 'X';
 var player2 = 'O';
 
 function setNextTurn(){
-  if (currentPlayer = player1) {
+  if (currentPlayer === player1) {
     currentPlayer = player2;
   }
   else {
