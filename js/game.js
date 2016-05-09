@@ -8,15 +8,17 @@ var player2Total = 0;
 
 //winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
 
-var positions = [
+var position = [
   NaN, NaN, NaN, NaN,
   NaN, NaN, NaN, NaN,
   NaN, NaN, NaN, NaN,
   NaN, NaN, NaN, NaN
 ];
 
+//Player vars
 var player1 = 'X';
 var player2 = 'O';
+var currentPlayer = null;
 
 function setNextTurn(){
   if (currentPlayer === player1) {
@@ -54,26 +56,15 @@ function checkForWinner(){
     }
 }
 
-//getWinner = function(move){
-  //var result = false;
+$('document').on('click', '#board .position', function(i) {
+  var positionNumber = $(i.clickTarget).index();
+  console.log('You clicked on ' + positionNumber);
 
-  //result = true;
-  //}
-  //return result;
-//};
+  spaces[positionNumber] = currentPlayer;
 
-//set div's to empty
-//document.getElementById().innerText = "";
+  $('#board .position:eq(' + positionNumber + ')').addClass(currentPlayer);
 
-//Get player order
-  //Player 1 first
-  //Player 2 second
-
-//if the first player clicks then append an X
-  //Change the state of that div to filled
-  //Assign number to player 1
-
-//if the seconds player clicks on a div then append a O
-  //Change the state of that div to filled
-  //Assign number to player 2
+  checkForWinner();
+  setNextTurn();
+});
 
