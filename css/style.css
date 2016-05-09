@@ -15,19 +15,19 @@
 /*Row elements keep columns inside - stop overflow*/
 /*DRY*/
 .row1 {
-
+  padding: 10px;
 }
 
 .row2 {
-
+  padding: 10px;
 }
 
 .row3 {
-
+  padding: 10px;
 }
 
 .row4 {
-
+  padding: 10px;
 }
 
 .row1:before, .row1:after {
