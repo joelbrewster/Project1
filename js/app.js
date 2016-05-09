@@ -7,6 +7,16 @@ $(document).ready(function() {
     'padding': '2'
   });
 
+
+  var colums = $('.col1, .col2, .col3, .col4');
+  /*Remember gutters later*/
+
+  colums.css({
+    'float': 'left',
+    'width': '25%',
+    'padding': '20'
+  });
+
   //refactor me
   $('.col1,.col2,.col3,.col4').mouseover(function() {
     $(this).css({

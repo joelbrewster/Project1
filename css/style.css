@@ -40,32 +40,5 @@ div {
   clear: both;
 }
 
-/*Set column widths*/
-  /*Maybe set all colums to a common class?*/
-  /*Remember gutters*/
-.col1 {
-  float: left;
-  width: 25%;
-  padding: 2%;
-}
-
-.col2 {
-  float: left;
-  width: 25%;
-  padding: 2%;
-}
-
-.col3 {
-  float: left;
-  width: 25%;
-  padding: 2%;
-}
-
-.col4 {
-  float: left;
-  width: 25%;
-  padding: 2%;
-}
-
 /*Change @media queries for smaller size screens*/
 
