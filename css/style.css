@@ -1,0 +1,19 @@
+.board {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  /*put on the bottom*/
+  z-index: -1
+}
+
+/*Row elements keep columns inside - stop overflow*/
+
+/*TODO Look into clearfix again - Need it here?*/
+
+/*Position colums*/
+
+/*Set column widths*/
+/*Remember gutters - border box everything in .board?*/
+
+/*Change @media queries for smaller size screens*/
+
