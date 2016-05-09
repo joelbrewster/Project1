@@ -32,11 +32,30 @@ $(document).ready(function() {
   //Add mouse over sound click
 
   $('.col1').on('click', function(){
-  $(this)
+  //$(this)
   //Append text to div later
   //Fix up overflow
   //.append('<img src="assets/giphy.gif" alt="">')
   //.css({'width': '1'});
+
+  function startGame(){
+    document.turn = "x";
+    console.log(document.turn + "starts.");
+  }
+
+  function getMove(FIXMEdiv){
+    //Need to sort html divs
+    //TODO
+    FIXMEdiv.innerText = document.turn;
+  }
+
+  function changeTurn(){
+    if(document.turn == "X"){
+      document.turn = "O";
+    } else {
+      document.turn = "X";
+      }
+    }
   });
 });
 
