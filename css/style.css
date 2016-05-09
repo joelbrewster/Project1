@@ -27,6 +27,11 @@
 }
 
 /*TODO Look into clearfix again - Need it here?*/
+.row:before, .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /*Set column widths*/
   /*Maybe set all colums to a common class?*/
