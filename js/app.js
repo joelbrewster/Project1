@@ -1,40 +1,73 @@
 $(document).ready(function() {
 
-  var rows = $('.row1, .row2, .row3, .row4');
-  rows
-  .css({
-    'text-align': 'center',
-    'padding': '2'
-  });
+  //How many wins
+  var player1Wins = 0;
+  var player2Wins = 0;
 
-  var colums = $('.col1, .col2, .col3, .col4');
-  colums
-  .css({
-    'float': 'left',
-    'width': '25%',
-    'padding': '20'
-  });
+  //Total num of wins
+  var player1Total = 0;
+  var player2Total = 0;
 
-  var divs = $('<div>');
-  divs.onClick=getMove(this);
+  //winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
 
-  function startGame(){
-    document.turn = "x";
-    console.log(document.turn + "starts.");
-  }
+  var position = [
+    NaN, NaN, NaN, NaN,
+    NaN, NaN, NaN, NaN,
+    NaN, NaN, NaN, NaN,
+    NaN, NaN, NaN, NaN
+  ];
 
-  function getMove(columns){
-    columns.innerText = document.turn;
-    changeTurn();
-  }
+  //Player vars
+  var player1 = 'X';
+  var player2 = 'O';
+  var currentPlayer = null;
 
-  function changeTurn(){
-    if(document.turn == "X"){
-      document.turn = "O";
-    } else {
-      document.turn = "X";
+  function setNextTurn(){
+    if (currentPlayer === player1) {
+      currentPlayer = player2;
     }
-      console.log(document.turn);
+    else {
+      currentPlayer = player1;
+    }
+    //update text
   }
-  startGame();
+
+  function checkForWinner(){
+    //NaN === NaN is always false
+    if (positions[0] === positions[1] &&
+        positions[1] === positions[2] &&
+        positions[2] === positions[3] &&
+        positions[3] === positions[4] ||
+
+        positions[4] === positions[5] &&
+        positions[5] === positions[6] &&
+        positions[6] === positions[7] &&
+        positions[7] === positions[8] ||
+
+        positions[8] === positions[9] &&
+        positions[9] === positions[10] &&
+        positions[10] === positions[11] &&
+        positions[11] === positions[12] ||
+
+        positions[12] === positions[13] &&
+        positions[13] === positions[14] &&
+        positions[14] === positions[15]
+        )
+      {
+      console.log('winner?!');
+      }
+  }
+
+  $('document').on('click', '#board .position', function(i) {
+    var positionNumber = $(i.clickTarget).index();
+    console.log('You clicked on ' + positionNumber);
+
+    spaces[positionNumber] = currentPlayer;
+
+    $('#board .position:eq(' + positionNumber + ')').addClass(currentPlayer);
+
+    checkForWinner();
+    setNextTurn();
+
+  }
 });
