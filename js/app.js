@@ -15,22 +15,6 @@ $(document).ready(function() {
     'padding': '20'
   });
 
-  //mouse over stuff
-  //$('.col1,.col2,.col3,.col4').mouseover(function() {
-    //$(this)
-    //.css({
-      //'background-color':'green',
-      //'transform': 'scale(1.05)'
-    //});
-  //});
-  //$('.col1,.col2,.col3,.col4').mouseout(function() {
-    //$(this)
-    //.css({
-      //'background-color':'transparent',
-      //'transform':'none'
-    //});
-  //});
-
   var divs = $('<div>');
   divs.onClick=getMove(this);
 
@@ -49,7 +33,7 @@ $(document).ready(function() {
       document.turn = "O";
     } else {
       document.turn = "X";
-      }
+    }
       console.log(document.turn);
   }
   startGame();
