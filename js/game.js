@@ -11,6 +11,7 @@ var player2Total = 0;
 var positions = [
   NaN, NaN, NaN, NaN,
   NaN, NaN, NaN, NaN,
+  NaN, NaN, NaN, NaN,
   NaN, NaN, NaN, NaN
 ];
 
@@ -27,18 +28,42 @@ function setNextTurn(){
   //update text
 }
 
+function checkForWinner(){
+  //NaN === NaN is always false
+  if (positions[0] === positions[1] &&
+      positions[1] === positions[2] &&
+      positions[2] === positions[3] &&
+      positions[3] === positions[4] ||
 
+      positions[4] === positions[5] &&
+      positions[5] === positions[6] &&
+      positions[6] === positions[7] &&
+      positions[7] === positions[8] ||
 
-getWinner = function(move){
-  var result = false;
+      positions[8] === positions[9] &&
+      positions[9] === positions[10] &&
+      positions[10] === positions[11] &&
+      positions[11] === positions[12] ||
 
-  result = true;
-  }
-  return result;
-};
+      positions[12] === positions[13] &&
+      positions[13] === positions[14] &&
+      positions[14] === positions[15]
+      )
+    {
+    console.log('winner?!');
+    }
+}
+
+//getWinner = function(move){
+  //var result = false;
+
+  //result = true;
+  //}
+  //return result;
+//};
 
 //set div's to empty
-document.getElementById().innerText = "";
+//document.getElementById().innerText = "";
 
 //Get player order
   //Player 1 first
