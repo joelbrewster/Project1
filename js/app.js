@@ -1,14 +1,5 @@
 $(document).ready(function() {
-
-  //How many wins
-  var playerXWins = 0;
-  var playerOWins = 0;
-
-  //Total num of wins
-  var playerXTotal = 0;
-  var playerOTotal = 0;
-
-  var position = [
+  var positions = [
     NaN, NaN, NaN, NaN,
     NaN, NaN, NaN, NaN,
     NaN, NaN, NaN, NaN,
@@ -16,8 +7,8 @@ $(document).ready(function() {
   ];
 
   //Player vars
-  var playerX = 'playerX';
-  var playerO = 'playerO';
+  var playerX = 'pX';
+  var playerO = 'pO';
   var currentPlayer = null;
 
   function setNextTurn(){
@@ -27,8 +18,6 @@ $(document).ready(function() {
     else {
       currentPlayer = playerX;
     }
-    //TODO
-    //update text
     $('#messages').text(currentPlayer);
   }
 
@@ -44,11 +33,11 @@ $(document).ready(function() {
       }
   }
 
-  $('document').on('click', '#board .position', function(i) {
-    var positionNumber = $(i.clickTarget).index();
+  $(document).on('click', '#board .position', function(i) {
+    var positionNumber = $(i.currentTarget).index() + 1;
     console.log('You clicked on ' + positionNumber);
 
-    spaces[positionNumber] = currentPlayer;
+    positions[positionNumber] = currentPlayer;
 
     $('#board .position:eq(' + positionNumber + ')').addClass(currentPlayer);
 
