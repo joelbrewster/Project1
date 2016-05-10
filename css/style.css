@@ -26,6 +26,7 @@ h1 {
 }
 
 #board .position:hover {
+  /*Change to fade in or something*/
   background: #FFCF46;
   border: 1px solid black;
 }
@@ -33,11 +34,13 @@ h1 {
 #board .position.red {
   background: url("../assets/red.png");
   background-size: 100% 100%;
+  border: 1px solid black;
 }
 
 #board .position.blue {
   background: url("../assets/blue.png");
   background-size: 100% 100%;
+  border: 1px solid black;
 }
 
 /*Change @media queries for smaller size screens*/
