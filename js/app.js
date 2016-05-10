@@ -52,27 +52,34 @@ $(document).on('click', '#board .square', function(i) {
   var positionIndex;
 
   if (currentPlayer == playerRed) {
-    printWinner = "Red Wins!";
   for(i = 0; i < winConditions.length; i++){
-     winBlock = "";
+     winBlock = [];
     for( o = 0; o < winConditions[i].length; o++){
       positionIndex = winConditions[i][o];
-      winBlock += positions[positionIndex];
+      winBlock.push(positions[positionIndex]);
     }
-    if(winBlock.length == 12){
-      console.log(printWinner);
+    //var allTheSame = true;
+    if(winBlock[0] === "red" &&
+    winBlock[1] === "red" &&
+    winBlock[2] === "red" &&
+    winBlock[3] === "red") {
+      console.log( "Red Wins!");
     }
   }
 
   if (currentPlayer == playerBlue) {
-    printWinner = "Blue Wins!";
   for(i = 0; i < winConditions.length; i++){
-     winBlock = "";
+     winBlock = [];
     for( o = 0; o < winConditions[i].length; o++){
-       positionIndex = winConditions[i][o];
-      winBlock += positions[positionIndex];
-    }if(winBlock.length == 16){
-      console.log(printWinner);
+      positionIndex = winConditions[i][o];
+      winBlock.push(positions[positionIndex]);
+    }
+    //var allTheSame = true;
+    if(winBlock[0] === "blue" &&
+    winBlock[1] === "blue" &&
+    winBlock[2] === "blue" &&
+    winBlock[3] === "blue") {
+      console.log( "Blue Wins!");
       }
     }
   }
@@ -82,5 +89,4 @@ $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
 
 setNextTurn();
 });
-
 });
