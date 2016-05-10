@@ -8,7 +8,7 @@ $(function() {
 var moves = 0;
 var playerRed = 'red';
 var playerBlue = 'blue';
-var currentPlayer = playerBlue;
+var currentPlayer = null;
 var printWinner;
 
 //Board vars
@@ -48,6 +48,13 @@ function setNextTurn(){
 }
 setNextTurn();
 
+function redWins(){
+
+}
+function blueWins(){
+
+}
+
 $(document).on('click', '#board .square', function(i) {
   var positionNumber = $(i.currentTarget).index();
   positions[positionNumber]  = currentPlayer;
@@ -55,6 +62,7 @@ $(document).on('click', '#board .square', function(i) {
   var o;
   var positionIndex;
 
+  //TODO Make 2 win blocks for each player
   if (currentPlayer == playerRed) {
   for(i = 0; i < winConditions.length; i++){
      winBlock = [];
@@ -67,7 +75,8 @@ $(document).on('click', '#board .square', function(i) {
     winBlock[1] === "red" &&
     winBlock[2] === "red" &&
     winBlock[3] === "red") {
-      console.log( "Red Wins!");
+      redWins();
+      console.log("Red!!!!!");
     }
   }
 
@@ -83,7 +92,8 @@ $(document).on('click', '#board .square', function(i) {
     winBlock[1] === "blue" &&
     winBlock[2] === "blue" &&
     winBlock[3] === "blue") {
-      console.log( "Blue Wins!");
+      blueWins();
+      console.log("Blue!!!!!");
       }
     }
   }
