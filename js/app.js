@@ -22,7 +22,7 @@ $(document).ready(function() {
   }
 
   function checkForWinner(){
-    //NaN === NaN is always false
+    //There needs to be a simpler way
     if (positions[0] === positions[1] && positions[1] === positions[2] && positions[2] === positions[3] && positions[3] === positions[4] ||
         positions[4] === positions[5] && positions[5] === positions[6] && positions[6] === positions[7] && positions[7] === positions[8] ||
         positions[8] === positions[9] && positions[9] === positions[10] && positions[10] === positions[11] && positions[11] === positions[12] ||
@@ -34,10 +34,11 @@ $(document).ready(function() {
   }
 
   $(document).on('click', '#board .position', function(i) {
-    var positionNumber = $(i.currentTarget).index() + 1;
-    console.log('You clicked on ' + positionNumber);
+    var positionNumber = $(i.currentTarget).index();
+    positions[positionNumber]  = currentPlayer;
 
-    positions[positionNumber] = currentPlayer;
+    var realPosition = positionNumber + 1;
+    console.log('You clicked on ' + realPosition);
 
     $('#board .position:eq(' + positionNumber + ')').addClass(currentPlayer);
 
