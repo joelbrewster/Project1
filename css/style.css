@@ -31,12 +31,12 @@ h1 {
 }
 
 #board .position.red {
-  background: url("../assets/X.png");
+  background: url("../assets/red.png");
   background-size: 100% 100%;
 }
 
 #board .position.blue {
-  background: url("../assets/O.png");
+  background: url("../assets/blue.png");
   background-size: 100% 100%;
 }
 
