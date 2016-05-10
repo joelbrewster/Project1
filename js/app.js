@@ -1,54 +1,98 @@
-$(document).ready(function() {
-  var positions = [
-    1, 2, 4, 8,
-    NaN, NaN, NaN, NaN,
-    NaN, NaN, NaN, NaN,
-    NaN, NaN, NaN, NaN
-  ];
+$(function() {
 
-  winnerNumbers = [15, 240, 3840, 61440, 4369, 8738, 17476, 34948];
+//Player vars
+var moves = 0;
+var playerRed = 'red';
+var playerBlue = 'blue';
+var EMPTY = ' ';
+var clickNum = 0;
 
-  //Player vars
-  var playerRed = 'red';
-  var playerBlue = 'blue';
-  var currentPlayer = null;
-  var clickNum = 0;
+var positions = [
+  EMPTY, EMPTY, EMPTY, EMPTY,
+  EMPTY, EMPTY, EMPTY, EMPTY,
+  EMPTY, EMPTY, EMPTY, EMPTY,
+  EMPTY, EMPTY, EMPTY, EMPTY
+];
 
-  function setNextTurn(){
-    if (currentPlayer === playerRed) {
-      currentPlayer = playerBlue;
-    }
-    else {
-      currentPlayer = playerRed;
-    }
-    $('#messages').text(currentPlayer);
+function setNextTurn(){
+  if (currentPlayer === playerRed) {
+    currentPlayer = playerBlue;
+  }
+  else {
+    currentPlayer = playerRed;
+  }
+  $('#messages').text(currentPlayer);
+}
+
+function checkValidMove(i){
+  if (positions[i] == EMPTY) {
+    return true;
+  }
+  else {
+    $('#messages').text("That's not a space.");
+    return false;
   }
 
-  //function checkForWinner(){
-    //if ((positions[0] === positions[1] && positions[1] === positions[2] && positions[2] === positions[3] && positions[3] === positions[4])
-    //positions[4] === positions[5] && positions[5] === positions[6] && positions[6] === positions[7] && positions[7] === positions[8] ||
-    //positions[8] === positions[9] && positions[9] === positions[10] && positions[10] === positions[11] && positions[11] === positions[12] ||
-    //positions[12] === positions[13] && positions[13] === positions[14] && positions[14] === positions[15]
-  //}
+}
 
-  $(document).on('click', '#board .position', function(i) {
-    var positionNumber = $(i.currentTarget).index();
-    positions[positionNumber]  = currentPlayer;
+var makeMove = function  ($square, i) {
+  board[i] = currentPlayer;
+  $square.html(currentPlayer);
+  moves++;
+};
 
-    var realPosition = positionNumber + 1;
-    console.log('You clicked on ' + realPosition);
-    clickNum++;
-    console.log(clickNum);
-    //If 16 blocks have been clicked, don't let anymore player clicks
 
-    $('#board .position:eq(' + positionNumber + ')').addClass(currentPlayer);
+var squaresEqual = function (i){
 
-    //checkForWinner();
-    setNextTurn();
-  });
+};
 
-  $(document).on('gameWin', function (winner) {
-    //Alert Winner
-  });
+//update player click
+$(document).on('click', '#board .square', function(i) {
+  var positionNumber = $(i.currentTarget).index();
+  positions[positionNumber]  = currentPlayer;
+  moves++;
+
+  if (currentPlayer == playerRed) {
+    //TODO
+    //add to red players' click
+    //make the square that was clicked, unclickable again.
+    console.log("red player!");
+
+    } else if (currentPlayer == playerBlue){
+      //TODO
+      //add to blue players' click
+      //make the square that was clicked, unclickable again.
+      console.log("blue player!");
+
+    } else {
+      console.log("broken");
+    }
+
+  var realPosition = positionNumber + 1;
+  console.log('You clicked on ' + realPosition);
+
+  //Stop clicks when full
+    //keep a tally of how many times blue and red have clicked
+    if (clickNum <= 17){
+      console.log("Game over");
+      //TODO
+      //kill the game
+    }
+
+  console.log(clickNum);
+  //If 16 blocks have been clicked, don't let anymore player clicks
+  if (moves == 16) {
+    console.log("done!");
+  }
+
+  $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
+
+  checkForWinner();
   setNextTurn();
+});
+
+$(document).on('gameWin', function (winner) {
+  //Alert Winner
+});
+setNextTurn();
 });

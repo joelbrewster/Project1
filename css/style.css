@@ -15,7 +15,7 @@ h1 {
   width: 500px; height: 500px;
 }
 
-#board .position {
+#board .square {
   border: 1px double #C7C8CA;
   box-sizing: border-box;
   float: left;
@@ -25,19 +25,19 @@ h1 {
   line-height: 125px;
 }
 
-#board .position:hover {
+#board .square:hover {
   /*Change to fade in or something*/
   background: #FFCF46;
   border: 1px solid black;
 }
 
-#board .position.red {
+#board .square.red {
   background: url("../assets/red.png");
   background-size: 100% 100%;
   border: 1px solid black;
 }
 
-#board .position.blue {
+#board .square.blue {
   background: url("../assets/blue.png");
   background-size: 100% 100%;
   border: 1px solid black;
