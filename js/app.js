@@ -47,7 +47,7 @@ $(function() {
     var redWinner = "Red wins!";
     var blueWinner = "Blue wins!";
 
-    if (currentPlayer == playerRed) {
+    //if (currentPlayer == playerRed) {
       for(i = 0; i < winConditions.length; i++){
         var winBlock = "";
         for(var o = 0; o < winConditions[i].length; o++){
@@ -60,7 +60,7 @@ $(function() {
           console.log(blueWinner);
         }
       }
-    }
+    //}
 
     // var realPosition = positionNumber + 1;
     var realPosition = positionNumber;
