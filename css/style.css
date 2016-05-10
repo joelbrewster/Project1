@@ -30,12 +30,12 @@ h1 {
   border: 1px solid black;
 }
 
-#board .position.pX {
+#board .position.red {
   background: url("../assets/X.png");
   background-size: 100% 100%;
 }
 
-#board .position.pO {
+#board .position.blue {
   background: url("../assets/O.png");
   background-size: 100% 100%;
 }

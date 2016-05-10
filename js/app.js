@@ -7,16 +7,16 @@ $(document).ready(function() {
   ];
 
   //Player vars
-  var playerX = 'pX';
-  var playerO = 'pO';
+  var playerRed = 'red';
+  var playerBlue = 'blue';
   var currentPlayer = null;
 
   function setNextTurn(){
-    if (currentPlayer === playerX) {
-      currentPlayer = playerO;
+    if (currentPlayer === playerRed) {
+      currentPlayer = playerBlue;
     }
     else {
-      currentPlayer = playerX;
+      currentPlayer = playerRed;
     }
     $('#messages').text(currentPlayer);
   }
@@ -27,6 +27,9 @@ $(document).ready(function() {
 
       console.log("line!");
     }
+    else {
+      console.log("No line for you!");
+    }
 
 
         //positions[4] === positions[5] && positions[5] === positions[6] && positions[6] === positions[7] && positions[7] === positions[8] ||
@@ -34,6 +37,7 @@ $(document).ready(function() {
         //positions[12] === positions[13] && positions[13] === positions[14] && positions[14] === positions[15]
   }
 
+  //TODO stop changing color once clicked
   $(document).on('click', '#board .position', function(i) {
     var positionNumber = $(i.currentTarget).index();
     positions[positionNumber]  = currentPlayer;
