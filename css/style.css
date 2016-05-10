@@ -8,7 +8,6 @@ h1 {
   height: 100%;
 }
 
-/*TODO: center the board*/
 #board {
   background: white;
   width: 500px; height: 500px;
@@ -42,4 +41,24 @@ h1 {
   border: 1px solid black;
 }
 
+
 /*Change @media queries for smaller size screens*/
+#modal {
+  position: fixed;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+  height: 100%;
+  width: 100%;
+}
+.modalconent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 50%;
+  padding: 20px;
+}

@@ -1,5 +1,9 @@
 $(function() {
-
+  window.onload = function () {
+    document.getElementById('button').onclick = function () {
+      document.getElementById('modal').style.display = "none";
+    };
+  };
 //Player vars
 var moves = 0;
 var playerRed = 'red';
