@@ -1,10 +1,22 @@
+* {
+  /*border: 1px solid red;*/
+}
+h1 {
+  text-align: center;
+}
+#page {
+  width: 100%;
+  height: 100%;
+}
+
+/*TODO: center the board*/
 #board {
-  background: #C7C8CA;
+  background: white;
   width: 500px; height: 500px;
 }
 
 #board .position {
-  border: 1px solid #C2C2C2;
+  border: 1px double #C7C8CA;
   box-sizing: border-box;
   float: left;
   height: 125px;
