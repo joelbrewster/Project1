@@ -26,53 +26,42 @@ $(function() {
     var messages = $('#messages').text(currentPlayer);
   }
   setNextTurn();
+  var winConditions = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
+    [0, 5, 10, 15],
+    [3, 6, 9, 12],
+
+
+    []
+  ];
 
   $(document).on('click', '#board .square', function(i) {
     var positionNumber = $(i.currentTarget).index();
     positions[positionNumber]  = currentPlayer;
 
+    var redWinner = "Red wins!";
+    var blueWinner = "Blue wins!";
+
     if (currentPlayer == playerRed) {
-
-      var redWinner = "Red wins!";
-
-      //horizontal wins
-      if (positionNumber === (0 && 1 && 2 && 3)) {
-        console.log(redWinner);
+      for(i = 0; i < winConditions.length; i++){
+        var winBlock = "";
+        for(var o = 0; o < winConditions[i].length; o++){
+          var positionIndex = winConditions[i][o];
+          winBlock += positions[positionIndex];
+        }
+        if(winBlock.length == 12){
+          console.log(redWinner);
+        }else if(winBlock.length === 16){
+          console.log(blueWinner);
+        }
       }
-      else if (positionNumber === (4 && 5 && 6 && 7)) {
-        console.log(redWinner);
-      }
-      else if (positionNumber === (8 && 9 && 10 && 11)) {
-        console.log(redWinner);
-      }
-      else if (positionNumber === (12 && 13 && 14 && 15)) {
-        console.log(redWinner);
-      }
-      //vertical wins
-      else if (positionNumber === (0 && 4 && 8 && 12)) {
-        console.log(redWinner);
-      }
-      else if (positionNumber === (1 && 5 && 9 && 13)){
-        console.log(redWinner);
-      }
-      else if (positionNumber === (2 && 6 && 10 && 14)) {
-        console.log(redWinner);
-      }
-      else if (positionNumber === (3 && 7 && 11 && 15)) {
-        console.log(redWinner);
-      }
-      //diagonal wins
-      else if (positionNumber === (0 && 5 && 10 && 15)) {
-        console.log(redWinner);
-      }
-      else if (positionNumber === (3 && 6 && 9 && 12)) {
-        console.log(redWinner);
-      }
-
-    } else if (currentPlayer == playerBlue){
-      //horizontal wins
-      //TODO refactor later
-
     }
 
     // var realPosition = positionNumber + 1;
