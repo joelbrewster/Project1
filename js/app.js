@@ -16,16 +16,6 @@ $(function() {
     EMPTY, EMPTY, EMPTY, EMPTY
   ];
 
-  function setNextTurn(){
-    if (currentPlayer === playerRed) {
-      currentPlayer = playerBlue;
-    }
-    else {
-      currentPlayer = playerRed;
-    }
-    var messages = $('#messages').text(currentPlayer);
-  }
-  setNextTurn();
   var winConditions = [
     [0, 1, 2, 3],
     [4, 5, 6, 7],
@@ -37,10 +27,18 @@ $(function() {
     [3, 7, 11, 15],
     [0, 5, 10, 15],
     [3, 6, 9, 12],
-
-
-    []
   ];
+
+  function setNextTurn(){
+    if (currentPlayer === playerRed) {
+      currentPlayer = playerBlue;
+    }
+    else {
+      currentPlayer = playerRed;
+    }
+    var messages = $('#messages').text(currentPlayer);
+  }
+  setNextTurn();
 
   $(document).on('click', '#board .square', function(i) {
     var positionNumber = $(i.currentTarget).index();
