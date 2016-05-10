@@ -16,8 +16,8 @@ $(document).ready(function() {
   ];
 
   //Player vars
-  var playerX = 'X';
-  var playerO = 'O';
+  var playerX = 'playerX';
+  var playerO = 'playerO';
   var currentPlayer = null;
 
   function setNextTurn(){
