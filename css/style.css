@@ -1,27 +1,31 @@
 #board {
-  border: 1px solid black;
+  background: grey;
+  width: 400px; height: 400px;
 }
 
 #board .position {
+  border: 1px solid black;
   box-sizing: border-box;
   float: left;
   width: 100px;
   height: 100px;
+  text-align: center;
+  line-height: 100px;
 }
 
 #board .position:hover {
-  /*Add a hover effect*/
-  background: pink;
+  background: goldenrod;
 }
-#board .space.X {
-  /*Add X images here*/
-  background: url("O.png");
+
+#board .space.x {
+  background: url("assets/X.png");
   background-size: 100% 100%;
 }
-#board .space.O {
-  /*Add X images here*/
-  background: url("X.png");
+
+#board .space.o {
+  background: url("assets/O.png");
   background-size: 100% 100%;
 }
+
 /*Change @media queries for smaller size screens*/
 
