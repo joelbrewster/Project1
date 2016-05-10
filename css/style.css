@@ -1,10 +1,10 @@
 #board {
-  background: #D9D9D9;
+  background: #C7C8CA;
   width: 500px; height: 500px;
 }
 
 #board .position {
-  border: 1px dotted #C2C2C2;
+  border: 1px solid #C2C2C2;
   box-sizing: border-box;
   float: left;
   height: 125px;
@@ -14,16 +14,17 @@
 }
 
 #board .position:hover {
-  background: #EBEBEB;
+  background: #FFCF46;
+  border: 1px solid black;
 }
 
-#board .space.pX {
-  background: url("assets/X.png");
+#board .position.pX {
+  background: url("../assets/X.png");
   background-size: 100% 100%;
 }
 
-#board .space.pO {
-  background: url("assets/O.png");
+#board .position.pO {
+  background: url("../assets/O.png");
   background-size: 100% 100%;
 }
 
