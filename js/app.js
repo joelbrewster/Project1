@@ -34,24 +34,10 @@ $(document).ready(function() {
 
   function checkForWinner(){
     //NaN === NaN is always false
-    if (positions[0] === positions[1] &&
-        positions[1] === positions[2] &&
-        positions[2] === positions[3] &&
-        positions[3] === positions[4] ||
-
-        positions[4] === positions[5] &&
-        positions[5] === positions[6] &&
-        positions[6] === positions[7] &&
-        positions[7] === positions[8] ||
-
-        positions[8] === positions[9] &&
-        positions[9] === positions[10] &&
-        positions[10] === positions[11] &&
-        positions[11] === positions[12] ||
-
-        positions[12] === positions[13] &&
-        positions[13] === positions[14] &&
-        positions[14] === positions[15]
+    if (positions[0] === positions[1] && positions[1] === positions[2] && positions[2] === positions[3] && positions[3] === positions[4] ||
+        positions[4] === positions[5] && positions[5] === positions[6] && positions[6] === positions[7] && positions[7] === positions[8] ||
+        positions[8] === positions[9] && positions[9] === positions[10] && positions[10] === positions[11] && positions[11] === positions[12] ||
+        positions[12] === positions[13] && positions[13] === positions[14] && positions[14] === positions[15]
         )
       {
       console.log('winner?!');
