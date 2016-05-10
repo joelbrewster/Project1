@@ -1,98 +1,87 @@
 $(function() {
 
-//Player vars
-var moves = 0;
-var playerRed = 'red';
-var playerBlue = 'blue';
-var EMPTY = ' ';
-var clickNum = 0;
+  //Player vars
+  var moves = 0;
+  var playerRed = 'red';
+  var playerBlue = 'blue';
+  var EMPTY = ' ';
+  var clickNum = 0;
+  var currentPlayer = playerBlue;
+  var realPosition;
 
-var positions = [
-  EMPTY, EMPTY, EMPTY, EMPTY,
-  EMPTY, EMPTY, EMPTY, EMPTY,
-  EMPTY, EMPTY, EMPTY, EMPTY,
-  EMPTY, EMPTY, EMPTY, EMPTY
-];
+  var positions = [
+    EMPTY, EMPTY, EMPTY, EMPTY,
+    EMPTY, EMPTY, EMPTY, EMPTY,
+    EMPTY, EMPTY, EMPTY, EMPTY,
+    EMPTY, EMPTY, EMPTY, EMPTY
+  ];
 
-function setNextTurn(){
-  if (currentPlayer === playerRed) {
-    currentPlayer = playerBlue;
+  function setNextTurn(){
+    if (currentPlayer === playerRed) {
+      currentPlayer = playerBlue;
+    }
+    else {
+      currentPlayer = playerRed;
+    }
+    var messages = $('#messages').text(currentPlayer);
   }
-  else {
-    currentPlayer = playerRed;
-  }
-  $('#messages').text(currentPlayer);
-}
+  setNextTurn();
 
-function checkValidMove(i){
-  if (positions[i] == EMPTY) {
-    return true;
-  }
-  else {
-    $('#messages').text("That's not a space.");
-    return false;
-  }
+  $(document).on('click', '#board .square', function(i) {
+    var positionNumber = $(i.currentTarget).index();
+    positions[positionNumber]  = currentPlayer;
 
-}
+    if (currentPlayer == playerRed) {
 
-var makeMove = function  ($square, i) {
-  board[i] = currentPlayer;
-  $square.html(currentPlayer);
-  moves++;
-};
+      var redWinner = "Red wins!";
 
-
-var squaresEqual = function (i){
-
-};
-
-//update player click
-$(document).on('click', '#board .square', function(i) {
-  var positionNumber = $(i.currentTarget).index();
-  positions[positionNumber]  = currentPlayer;
-  moves++;
-
-  if (currentPlayer == playerRed) {
-    //TODO
-    //add to red players' click
-    //make the square that was clicked, unclickable again.
-    console.log("red player!");
+      //horizontal wins
+      if (positionNumber === (0 && 1 && 2 && 3)) {
+        console.log(redWinner);
+      }
+      else if (positionNumber === (4 && 5 && 6 && 7)) {
+        console.log(redWinner);
+      }
+      else if (positionNumber === (8 && 9 && 10 && 11)) {
+        console.log(redWinner);
+      }
+      else if (positionNumber === (12 && 13 && 14 && 15)) {
+        console.log(redWinner);
+      }
+      //vertical wins
+      else if (positionNumber === (0 && 4 && 8 && 12)) {
+        console.log(redWinner);
+      }
+      else if (positionNumber === (1 && 5 && 9 && 13)){
+        console.log(redWinner);
+      }
+      else if (positionNumber === (2 && 6 && 10 && 14)) {
+        console.log(redWinner);
+      }
+      else if (positionNumber === (3 && 7 && 11 && 15)) {
+        console.log(redWinner);
+      }
+      //diagonal wins
+      else if (positionNumber === (0 && 5 && 10 && 15)) {
+        console.log(redWinner);
+      }
+      else if (positionNumber === (3 && 6 && 9 && 12)) {
+        console.log(redWinner);
+      }
 
     } else if (currentPlayer == playerBlue){
-      //TODO
-      //add to blue players' click
-      //make the square that was clicked, unclickable again.
-      console.log("blue player!");
+      //horizontal wins
+      //TODO refactor later
 
-    } else {
-      console.log("broken");
     }
 
-  var realPosition = positionNumber + 1;
-  console.log('You clicked on ' + realPosition);
+    // var realPosition = positionNumber + 1;
+    var realPosition = positionNumber;
 
-  //Stop clicks when full
-    //keep a tally of how many times blue and red have clicked
-    if (clickNum <= 17){
-      console.log("Game over");
-      //TODO
-      //kill the game
-    }
 
-  console.log(clickNum);
-  //If 16 blocks have been clicked, don't let anymore player clicks
-  if (moves == 16) {
-    console.log("done!");
-  }
+    $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
 
-  $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
+    setNextTurn();
+  });
 
-  checkForWinner();
-  setNextTurn();
-});
-
-$(document).on('gameWin', function (winner) {
-  //Alert Winner
-});
-setNextTurn();
 });
