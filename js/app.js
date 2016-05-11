@@ -26,49 +26,6 @@ $(function() {
     EMPTY, EMPTY, EMPTY, EMPTY
   ];
 
-/*
-  var rowLength = 4;
-  var redCount = 0;
-  var blueCount = 0;
-
-  //check horizonal
-  for(var i=0, n=positions.length; i<n; i++){
-    if((i+1)%rowLength == 0){
-      blueCount = 0;
-      redCount = 0;
-    }
-    if(positions[i] == "red"){
-      redCount++;
-    }
-    if(positions[i] == "blue"){
-      blueCount++;
-    }
-    if(blueCount == rowLength){
-      // blue wins
-    }
-    if(redCount == rowLength){
-      // red wins
-    }
-  }
-
-  //check vertical
-  for(var i=0, n=rowLength; i<n; i++){
-    var pos_1 = positions[i*rowLength];
-    var pos_2 = positions[i*rowLength+1];
-    var pos_3 = positions[i*rowLength+2];
-    var pos_4 = positions[i*rowLength+3];
-
-    if(pos_1 == pos_2 && pos_2 == pos_3 && pos_3 == pos_4){
-      if(pos_1 == "red"){
-        //red wins
-      }else if (pos_1 == "blue"){
-        //blue wins
-      }
-
-  }
-
-*/
-
   //Store all the winning combinations a player can use
   var winConditions = [
     [0, 1, 2, 3],
@@ -92,7 +49,8 @@ $(function() {
 
   function checkForTie(){
     var isTie = true;
-    for (var i = 0; i < positions.length; i++){
+    n = positions.length;
+    for (var i = 0; i < n; i++){
       if(positions[i] == EMPTY){
         isTie = false;
         break;
@@ -104,10 +62,6 @@ $(function() {
   function setNextTurn(){
     if (currentPlayer === playerRed) {
       currentPlayer = playerBlue;
-      // playerBlue.css('color','#1B75B7');
-      // #('#board .square:hover').css({
-      //   'background': 'rgba(0,0,0,.6);'
-      // });
     }
     else {
       currentPlayer = playerRed;
@@ -122,11 +76,7 @@ $(function() {
     winBlockRed = [];
     $('#messages').text("Red wins!").css('color','#FA5048');
     stopUpdatingBoard();
-    //Load a modal pop up
-    //Load a button to reset page
     winner = 'Red';
-    //Button
-    //Reset shit
   }
 
   function blueWins(){
@@ -134,32 +84,22 @@ $(function() {
     $('#messages').text("Blue wins!").css('color','#1B75B7');
     stopUpdatingBoard();
     winner = 'Blue';
-    //Button
-    //Reset shit
   }
 
-  function reset(){
-    $(document).on('click', '#board .square').removeClass('clicked');
-  currentPlayer = playerRed;
-  winner = null;
+  function restartGame(){
+    $(document).on('click', '#restart').removeClass('clicked');
+    currentPlayer = playerRed;
+    winner = null;
 
-  //Board
-  EMPTY = '';
-  //var clickNum = 0;
-
-  //Create an empty 'board' where players can click
-  positions = [
-    EMPTY, EMPTY, EMPTY, EMPTY,
-    EMPTY, EMPTY, EMPTY, EMPTY,
-    EMPTY, EMPTY, EMPTY, EMPTY,
-    EMPTY, EMPTY, EMPTY, EMPTY
-  ];
-
-
+    EMPTY = '';
+    positions = [
+      EMPTY, EMPTY, EMPTY, EMPTY,
+      EMPTY, EMPTY, EMPTY, EMPTY,
+      EMPTY, EMPTY, EMPTY, EMPTY,
+      EMPTY, EMPTY, EMPTY, EMPTY
+    ];
   }
 
-  //Change function type
-  //Simplify - then can call and cancel it on win condition
   $(document).on('click', '#board .square', function(i) {
     var thisSquare = $(this);
     if(!thisSquare.hasClass('clicked')){
@@ -173,10 +113,9 @@ $(function() {
     var alreadyClicked = [];
 
     if (currentPlayer == playerRed) {
-      for(i = 0; i < winConditions.length; i++){
+      n = winConditions.length;
+      for(i = 0; i < n; i++){
         winBlockRed = [];
-        //TODO
-        //If not in alreadyClicked
         for( o = 0; o < winConditions[i].length; o++){
             positionIndex = winConditions[i][o];
           winBlockRed.push(positions[positionIndex]);
@@ -195,10 +134,9 @@ $(function() {
       }
     }
       if (currentPlayer == playerBlue) {
-        for(i = 0; i < winConditions.length; i++){
+        n = winConditions.length;
+        for(i = 0; i < n; i++){
           winBlockBlue = [];
-          //TODO
-          //If not in alreadyClicked
           for( o = 0; o < winConditions[i].length; o++){
             positionIndex = winConditions[i][o];
             winBlockBlue.push(positions[positionIndex]);
@@ -220,6 +158,7 @@ $(function() {
     $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
     //Check for tie
     if (checkForTie()){
+
       $('#messages').text("It's a tie!");
       } else {
       setNextTurn();
