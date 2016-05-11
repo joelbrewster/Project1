@@ -86,24 +86,28 @@ $(function() {
     winner = 'Blue';
   }
 
+  $('#restart').on('click', restartGame);
   function restartGame(){
-    $(document).on('click', '#restart').removeClass('clicked');
+
+
+    $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
     currentPlayer = playerRed;
     winner = null;
 
+    //TODO
     EMPTY = '';
     positions = [
       EMPTY, EMPTY, EMPTY, EMPTY,
       EMPTY, EMPTY, EMPTY, EMPTY,
       EMPTY, EMPTY, EMPTY, EMPTY,
       EMPTY, EMPTY, EMPTY, EMPTY
-    ];
-  }
+      ];
+    }
 
-  $(document).on('click', '#board .square', function(i) {
-    var thisSquare = $(this);
-    if(!thisSquare.hasClass('clicked')){
-      thisSquare.addClass('clicked');
+    $(document).on('click', '#board .square', function(i) {
+      var thisSquare = $(this);
+      if(!thisSquare.hasClass('clicked')){
+        thisSquare.addClass('clicked');
     var positionNumber = $(i.currentTarget).index();
     positions[positionNumber]  = currentPlayer;
 
