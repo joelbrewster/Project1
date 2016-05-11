@@ -1,16 +1,36 @@
-* {
-  /*border: 1px solid red;*/
-}
 body {
   text-align: center;
   min-width: 500px;
+  font-family: monospace;
+  font-size: 1.3em;
+	font-style: normal;
+	font-variant: normal;
+  background: #C7C7C7;
 }
+
+/*center these fools*/
 div {
-  padding-top: 1%;
   margin: 0 auto;
 }
-h1 {
+
+button {
+  font-size: 14px;
+  padding: 3% 6%;
+  font-weight: bold;
+  border: 1px solid #505050;
+  color: #4F4F4F;
 }
+
+button:hover {
+  color: black ;
+  border: 1px solid #505050;
+  animation-name: boingboing;
+  animation-duration: 3s
+  -webkit-animation-name: boingboing;
+  -webkit-animation-duration: 3s;
+  animation-iteration-count:infinite;
+}
+
 #page {
   width: 100%;
   height: 100%;
@@ -22,19 +42,40 @@ h1 {
 }
 
 #board .square {
-  border: 1px double #C7C8CA;
+  border: 2px solid #C7C7C7;
   box-sizing: border-box;
   float: left;
   height: 125px;
   width: 125px;
   text-align: center;
   line-height: 125px;
+  cursor: pointer;
 }
 
 #board .square:hover {
   /*Change to fade in or something*/
-  background: #c7c7c7;
-  border: 1px solid black;
+  border: 1px solid #505050;
+  background: rgba(80,80,80,.6);
+  animation-name: boingboing;
+  animation-duration: 3s
+  -webkit-animation-name: boingboing;
+  -webkit-animation-duration: 3s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes boingboing {
+  0%{
+    opacity: .8;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    opacity: .8;
+    transform: scale(1, 1);
+  }
 }
 
 #board .square.red {
@@ -49,18 +90,31 @@ h1 {
   border: 1px solid black;
 }
 
-
-/*Change @media queries for smaller size screens*/
 #modal {
   position: fixed;
-  /*font-family: Arial, Helvetica, sans-serif;*/
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 99999;
   height: 100%;
   width: 100%;
+  animation-name: animatetop;
+  animation-duration: 0.5s
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.5s;
 }
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -500px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+@-webkit-keyframes animatetop {
+  from {top: -500px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
 .modalconent {
   position: absolute;
   top: 50%;
@@ -70,3 +124,5 @@ h1 {
   width: 50%;
   padding: 20px;
 }
+
+/*Change @media queries for smaller size screens*/

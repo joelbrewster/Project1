@@ -1,4 +1,5 @@
 $(function() {
+  //Load the modal rules window on page load
   window.onload = function () {
     document.getElementById('button').onclick = function () {
       document.getElementById('modal').style.display = "none";
@@ -44,6 +45,7 @@ function setNextTurn(){
   else {
     currentPlayer = playerRed;
   }
+  //TODO change cursor border to the player colors
   var messages = $('#messages').text(currentPlayer);
 }
 setNextTurn();
