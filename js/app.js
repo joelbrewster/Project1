@@ -15,7 +15,8 @@ var printWinner;
 //Board vars
 var EMPTY = '';
 var clickNum = 0;
-var winBlock;
+var winBlockRed;
+var winBlockBlue;
 
 var positions = [
   EMPTY, EMPTY, EMPTY, EMPTY,
@@ -45,7 +46,6 @@ function setNextTurn(){
   else {
     currentPlayer = playerRed;
   }
-  //TODO change cursor border to the player colors
   var messages = $('#messages').text(currentPlayer);
 }
 setNextTurn();
@@ -64,19 +64,18 @@ $(document).on('click', '#board .square', function(i) {
   var o;
   var positionIndex;
 
-  //TODO Make 2 win blocks for each player
   if (currentPlayer == playerRed) {
   for(i = 0; i < winConditions.length; i++){
-     winBlock = [];
+     winBlockRed = [];
     for( o = 0; o < winConditions[i].length; o++){
       positionIndex = winConditions[i][o];
-      winBlock.push(positions[positionIndex]);
+      winBlockRed.push(positions[positionIndex]);
     }
     //var allTheSame = true;
-    if(winBlock[0] === "red" &&
-    winBlock[1] === "red" &&
-    winBlock[2] === "red" &&
-    winBlock[3] === "red") {
+    if(winBlockRed[0] === "red" &&
+    winBlockRed[1] === "red" &&
+    winBlockRed[2] === "red" &&
+    winBlockRed[3] === "red") {
       redWins();
       console.log("Red!!!!!");
     }
@@ -84,16 +83,16 @@ $(document).on('click', '#board .square', function(i) {
 
   if (currentPlayer == playerBlue) {
   for(i = 0; i < winConditions.length; i++){
-     winBlock = [];
+     winBlockBlue = [];
     for( o = 0; o < winConditions[i].length; o++){
       positionIndex = winConditions[i][o];
-      winBlock.push(positions[positionIndex]);
+      winBlockBlue.push(positions[positionIndex]);
     }
     //var allTheSame = true;
-    if(winBlock[0] === "blue" &&
-    winBlock[1] === "blue" &&
-    winBlock[2] === "blue" &&
-    winBlock[3] === "blue") {
+    if(winBlockBlue[0] === "blue" &&
+    winBlockBlue[1] === "blue" &&
+    winBlockBlue[2] === "blue" &&
+    winBlockBlue[3] === "blue") {
       blueWins();
       console.log("Blue!!!!!");
       }
