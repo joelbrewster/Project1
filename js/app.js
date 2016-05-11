@@ -11,6 +11,7 @@ $(function() {
   var playerBlue = 'blue';
   var currentPlayer = null;
   var printWinner;
+  var winner;
 
   //Board vars
   var EMPTY = '';
@@ -18,6 +19,7 @@ $(function() {
   var winBlockRed;
   var winBlockBlue;
 
+  //Create an empty 'board' where players can click
   var positions = [
     EMPTY, EMPTY, EMPTY, EMPTY,
     EMPTY, EMPTY, EMPTY, EMPTY,
@@ -25,6 +27,7 @@ $(function() {
     EMPTY, EMPTY, EMPTY, EMPTY
   ];
 
+  //Store all the winning combinations a player can use
   var winConditions = [
     [0, 1, 2, 3],
     [4, 5, 6, 7],
@@ -38,10 +41,11 @@ $(function() {
     [3, 6, 9, 12],
   ];
 
+  //When a player wins
+  //When all squares are full
   function stopUpdatingBoard(){
-    winBlockRed = [];
-    winBlockBlue = [];
-    //clear the board
+    //Stop click listener
+    $(document).off('click', '#board .square');
   }
 
   function setNextTurn(){
@@ -51,29 +55,30 @@ $(function() {
     else {
       currentPlayer = playerRed;
     }
-    var messages = $('#messages').text(currentPlayer);
+    //append the word "'s turn'" to the var messages
+    //check if someone is a winner or not
+    if(!winner){
+      $('#messages').text(currentPlayer).append("'s turn");
+    }
   }
-  setNextTurn();
 
   function redWins(){
-    console.log("red wins!");
-    //change the message at the bottom of the page in the <h1>.
-    //It is "messages" turn. => "messages" Wins!
-    //Load button under the "messages".
-    //Click button to refresh page.
-    //Change refresh page to clear board and start again.
-
     //TODO
-    //load modal popup
-
-    //refresh page on button click
+    winBlockRed = [];
+    $('#messages').text("Red wins!");
+    stopUpdatingBoard();
+    winner = 'Red';
   }
 
   function blueWins(){
-    console.log("blue wins!");
-
+    winBlockBlue = [];
+    $('#messages').text("Blue wins!");
+    stopUpdatingBoard();
+    winner = 'Blue';
   }
 
+  //Change function type
+  //Simplify - then can call and cancel it on win condition
   $(document).on('click', '#board .square', function(i) {
     var positionNumber = $(i.currentTarget).index();
     positions[positionNumber]  = currentPlayer;
@@ -88,20 +93,19 @@ $(function() {
           positionIndex = winConditions[i][o];
           winBlockRed.push(positions[positionIndex]);
         }
-        var allTheSame = true;
+
         if(winBlockRed[0] === "red" &&
         winBlockRed[1] === "red" &&
         winBlockRed[2] === "red" &&
         winBlockRed[3] === "red") {
 
-          //kill the onClick stuff
-          positionIndex = null;
-          positions[positionNumber] = null;
+          //Change the text to print winner
           redWins();
           stopUpdatingBoard();
+          break;
         }
       }
-
+    }
       if (currentPlayer == playerBlue) {
         for(i = 0; i < winConditions.length; i++){
           winBlockBlue = [];
@@ -109,20 +113,22 @@ $(function() {
             positionIndex = winConditions[i][o];
             winBlockBlue.push(positions[positionIndex]);
           }
-          var allTheSame = true;
+
           if(winBlockBlue[0] === "blue" &&
           winBlockBlue[1] === "blue" &&
           winBlockBlue[2] === "blue" &&
           winBlockBlue[3] === "blue") {
+
+            //Change the text to print winner
             blueWins();
             stopUpdatingBoard();
+            break;
           }
         }
       }
-    }
 
+    //update the positions and current player
     $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
-
     setNextTurn();
   });
 });
