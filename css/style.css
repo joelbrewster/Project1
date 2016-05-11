@@ -27,6 +27,7 @@ span {
 }
 button {
   font-size: 14px;
+  display: inline;
   padding: 3% 6%;
   font-weight: bold;
   border: 1px solid #505050;
@@ -34,6 +35,9 @@ button {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
+.center {
+    text-align: center;
+}
 button:hover {
   color: black ;
   border: 1px solid #505050;
