@@ -12,6 +12,7 @@ $(function() {
   var currentPlayer = playerRed;
   var printWinner;
   var winner;
+  var alreadyClicked = [];
 
   //Board vars
   var EMPTY = '';
@@ -55,15 +56,13 @@ $(function() {
     else {
       currentPlayer = playerRed;
     }
-    //append the word "'s turn'" to the var messages
-    //check if someone is a winner or not
+
     if(!winner){
       $('#messages').text(currentPlayer).append("'s turn");
     }
   }
 
   function redWins(){
-    //TODO
     winBlockRed = [];
     $('#messages').text("Red wins!");
     stopUpdatingBoard();
@@ -92,6 +91,7 @@ $(function() {
         for( o = 0; o < winConditions[i].length; o++){
           positionIndex = winConditions[i][o];
           winBlockRed.push(positions[positionIndex]);
+          alreadyClicked.push(positionIndex[positionIndex]);
         }
 
         if(winBlockRed[0] === "red" &&
@@ -99,7 +99,6 @@ $(function() {
         winBlockRed[2] === "red" &&
         winBlockRed[3] === "red") {
 
-          //Change the text to print winner
           redWins();
           stopUpdatingBoard();
           break;
@@ -112,6 +111,7 @@ $(function() {
           for( o = 0; o < winConditions[i].length; o++){
             positionIndex = winConditions[i][o];
             winBlockBlue.push(positions[positionIndex]);
+            alreadyClicked.push(positionIndex[positionIndex]);
           }
 
           if(winBlockBlue[0] === "blue" &&
@@ -119,7 +119,6 @@ $(function() {
           winBlockBlue[2] === "blue" &&
           winBlockBlue[3] === "blue") {
 
-            //Change the text to print winner
             blueWins();
             stopUpdatingBoard();
             break;
