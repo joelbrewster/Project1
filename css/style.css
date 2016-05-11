@@ -15,6 +15,8 @@ div {
 
 h1 {
   font-size: 2.5em;
+  /*fallback color*/
+  color: black;
   color: rgba(0, 0, 0, 0.6);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -31,7 +33,7 @@ button:hover {
   color: black ;
   border: 1px solid #505050;
   animation-name: boingboing;
-  animation-duration: 3s
+  animation-duration: 3s;
   -webkit-animation-name: boingboing;
   -webkit-animation-duration: 3s;
   animation-iteration-count:infinite;
@@ -61,6 +63,8 @@ button:hover {
 #board .square:hover {
   /*Change to fade in or something*/
   border: 1px solid #505050;
+  /*fallback color*/
+  color: grey;
   background: rgba(80,80,80,.6);
   animation-name: boingboing;
   animation-duration: 3s
@@ -100,12 +104,14 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
+  /*fallback color*/
+  background: black;
   background: rgba(0, 0, 0, 0.6);
   z-index: 99999;
   height: 100%;
   width: 100%;
   animation-name: animatetop;
-  animation-duration: 0.5s
+  animation-duration: 0.5s;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.5s;
 }
