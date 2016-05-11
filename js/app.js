@@ -12,7 +12,6 @@ $(function() {
   var currentPlayer = playerRed;
   var printWinner;
   var winner;
-  var alreadyClicked = [];
 
   //Board vars
   var EMPTY = '';
@@ -52,6 +51,10 @@ $(function() {
   function setNextTurn(){
     if (currentPlayer === playerRed) {
       currentPlayer = playerBlue;
+      // playerBlue.css('color','#1B75B7');
+      // #('#board .square:hover').css({
+      //   'background': 'rgba(0,0,0,.6);'
+      // });
     }
     else {
       currentPlayer = playerRed;
@@ -64,14 +67,14 @@ $(function() {
 
   function redWins(){
     winBlockRed = [];
-    $('#messages').text("Red wins!");
+    $('#messages').text("Red wins!").css('color','#FA5048');
     stopUpdatingBoard();
     winner = 'Red';
   }
 
   function blueWins(){
     winBlockBlue = [];
-    $('#messages').text("Blue wins!");
+    $('#messages').text("Blue wins!").css('color','#1B75B7');
     stopUpdatingBoard();
     winner = 'Blue';
   }
@@ -85,11 +88,15 @@ $(function() {
     var o;
     var positionIndex;
 
+    var alreadyClicked = [];
+
     if (currentPlayer == playerRed) {
       for(i = 0; i < winConditions.length; i++){
         winBlockRed = [];
+        //TODO
+        //If not in alreadyClicked
         for( o = 0; o < winConditions[i].length; o++){
-          positionIndex = winConditions[i][o];
+            positionIndex = winConditions[i][o];
           winBlockRed.push(positions[positionIndex]);
           alreadyClicked.push(positionIndex[positionIndex]);
         }
@@ -108,6 +115,8 @@ $(function() {
       if (currentPlayer == playerBlue) {
         for(i = 0; i < winConditions.length; i++){
           winBlockBlue = [];
+          //TODO
+          //If not in alreadyClicked
           for( o = 0; o < winConditions[i].length; o++){
             positionIndex = winConditions[i][o];
             winBlockBlue.push(positions[positionIndex]);
