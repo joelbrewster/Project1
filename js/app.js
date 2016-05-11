@@ -9,7 +9,7 @@ $(function() {
   var moves = 0;
   var playerRed = 'red';
   var playerBlue = 'blue';
-  var currentPlayer = null;
+  var currentPlayer = playerRed;
   var printWinner;
   var winner;
 
