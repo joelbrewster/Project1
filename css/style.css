@@ -13,12 +13,18 @@ div {
   margin: 0 auto;
 }
 
+h1 {
+  font-size: 2.5em;
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
 button {
   font-size: 14px;
   padding: 3% 6%;
   font-weight: bold;
   border: 1px solid #505050;
   color: #4F4F4F;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
