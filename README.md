@@ -6,6 +6,7 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
 [Link](https://www.youtube.com/watch?v=NeB-5yJkcYs) to the click sound.
 [link](https://www.youtube.com/watch?v=j66sy39ZSIU) to the other click sound.
 
+
 ## Rules
 - Player 1 goes first.
     - Player 1 clicks a square, that player owns that square.
@@ -18,22 +19,16 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
 ## Layout
 - 4x4 divs that fill the screen.
 - On load, overlay with rules.
-    - MAYBE: player select a color from the array of colors.
-
-- On player win, overlay with player win message.
+- On win, print who's the winner or tie.
 
 ## Logic
-- Player 1 always goes first
-- 4 adjacent squares in a row = win
+- Player 1 always goes first.
+- 4 adjacent squares in a row = win.
+- All squares full = tie.
 
 ## Extra
-- select player1 color
-    - player 1 is then that color
-
-- select player2 color
-    - player 2 is then that color
-
-- Animations/blend effects for mouseover, selections
+- Animations/blend effects for mouseover, selections, win conditions etc.
+- Add sounds for the buttons, click elements and some animations.
 
 
 ## Wireframe information
@@ -220,3 +215,55 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 
  ```
+
+##Reflection
+If I could redo it over again.
+I'd definately redo the javascript board logic with modulo.
+
+```
+var rowLength = 4;
+var redCount = 0;
+var blueCount = 0;
+
+//check horizonal
+n = positions.length;
+for(var i=0, i<n; i++){
+  if((i+1)%rowLength == 0){
+    blueCount = 0;
+    redCount = 0;
+  }
+  if(positions[i] == "red"){
+    redCount++;
+  }
+  if(positions[i] == "blue"){
+    blueCount++;
+  }
+  if(blueCount == rowLength){
+    // blue wins
+  }
+  if(redCount == rowLength){
+    // red wins
+  }
+}
+
+//check vertical
+for(var i=0, n=rowLength; i<n; i++){
+  var pos_1 = positions[i*rowLength];
+  var pos_2 = positions[i*rowLength+1];
+  var pos_3 = positions[i*rowLength+2];
+  var pos_4 = positions[i*rowLength+3];
+
+  if(pos_1 == pos_2 && pos_2 == pos_3 && pos_3 == pos_4){
+    if(pos_1 == "red"){
+      //red wins
+      }else if (pos_1 == "blue"){
+        //blue wins
+      }
+      etc, etc, etc
+
+    }
+```
+
+## Reflection
+- I jumped in too quick to start and didn't think about how to go over the board well enough.
+- Don't eat takeout burrito/wraps for dinner when you're busy with study.
