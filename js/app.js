@@ -47,28 +47,52 @@ $(function() {
     if (winner == 'red' || 'blue') {
 
       //Nice and dry
-      $('#board').css('position', 'relative').append('<div class="cover"></div>');
-      $('.cover').css('position', 'relative').append('<div class="conf-cont">');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
-      $('.cover').css('position', 'relative').append('<div class="confetti"></div>');
+      //Put a cover over the onclick section of the board
+      $('#board').css('position', 'relative')
+      //Appends some confetti css to the 'cover'.
+      .append('<div class="cover"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="conf-cont">');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
+      $('.cover')
+      .css('position', 'relative').append('<div class="confetti"></div>');
     }
   }
 
@@ -95,6 +119,7 @@ $(function() {
       currentPlayer = playerRed;
     }
 
+    //If there's no winner, change the text under the board
     if(!winner){
       $('#messages').text(currentPlayer).append("'s turn");
     }
@@ -120,6 +145,7 @@ $(function() {
     currentPlayer = playerRed;
     winner = null;
 
+    //Set vars back to default, remove the appended classes to the divs
     $('.cover').css('display', 'none');
     $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
 
