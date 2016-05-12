@@ -41,12 +41,11 @@ $(function() {
     [3, 6, 9, 12],
   ];
 
-  //When a player wins
-  //When all squares are full
+  //When a board is full/ player wins
   function stopUpdatingBoard(){
 
     if (winner == 'red' || 'blue') {
-      console.log("board");
+
       //Nice and dry
       $('#board').css('position', 'relative').append('<div class="cover"></div>');
       $('.cover').css('position', 'relative').append('<div class="conf-cont">');
@@ -192,6 +191,7 @@ $(function() {
       if (checkForTie()){
 
         $('#messages').text("It's a tie!");
+
       } else {
         setNextTurn();
       }
