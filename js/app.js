@@ -64,10 +64,11 @@ $(function() {
   }
 
   function setNextTurn(){
-    if (currentPlayer === null) {
-      currentPlayer = playerRed;
-    }
-    else if (currentPlayer === playerRed) {
+    // if (currentPlayer === null) {
+    //   currentPlayer = playerRed;
+    // }
+    // else
+    if (currentPlayer === playerRed) {
       currentPlayer = playerBlue;
     }
     else {
@@ -75,20 +76,29 @@ $(function() {
     }
 
     if(!winner){
-      $('#messages').text(currentPlayer).append("'s turn");
+      $('#messages').text(currentPlayer).append("'s turn")
+      .css({
+        'color': '#1D1D1D',
+      });
     }
   }
 
   function redWins(){
     winBlockRed = [];
-    $('#messages').text("Red wins!");
+    $('#messages').text("Red wins!")
+      .css({
+        'color': '#AD4646',
+      });
     winner = 'red';
     stopUpdatingBoard();
   }
 
   function blueWins(){
     winBlockBlue = [];
-    $('#messages').text("Blue wins!");
+    $('#messages').text("Blue wins!")
+      .css({
+        'color': '#7BB0C0',
+      });
     winner = 'blue';
     stopUpdatingBoard();
   }
@@ -103,7 +113,10 @@ $(function() {
     $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
 
     //Add messages to start again
-    $('#messages').text(currentPlayer).append("'s turn");
+    $('#messages').text(currentPlayer).append("'s turn")
+      .css({
+        'color': '#1D1D1D',
+      });
 
     EMPTY = '';
     positions = [
@@ -169,7 +182,10 @@ $(function() {
       //Check for tie
       if (checkForTie()){
 
-        $('#messages').text("It's a tie!");
+        $('#messages').text("It's a tie!")
+          .css({
+            'color': '#BC8CAC',
+          });
       } else {
         setNextTurn();
       }
