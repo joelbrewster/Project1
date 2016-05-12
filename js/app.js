@@ -47,7 +47,7 @@ $(function() {
 
     if (winner == 'red' || 'blue') {
       console.log("board");
-      $('#board').css('position', 'relative').append('<div class="cover"></div>');
+      $('#board').css('position', 'relative').append('<div id="cover"></div>');
     }
   }
 
@@ -109,7 +109,7 @@ $(function() {
     currentPlayer = playerRed;
     winner = null;
 
-    $('.cover').css('display', 'none');
+    $('#cover').css('display', 'none');
     $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
 
     //Add messages to start again
