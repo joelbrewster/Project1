@@ -78,24 +78,22 @@ $(function() {
   function redWins(){
     winBlockRed = [];
     $('#messages').text("Red wins!").css('color','#FA5048');
-    stopUpdatingBoard();
     winner = 'Red';
-    console.log("Winner red");
+    stopUpdatingBoard();
   }
 
   function blueWins(){
     winBlockBlue = [];
     $('#messages').text("Blue wins!").css('color','#1B75B7');
-    stopUpdatingBoard();
     winner = 'Blue';
+    stopUpdatingBoard();
   }
 
   $('#restart').on('click', restartGame);
   function restartGame(){
 
-
     $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
-    currentPlayer = playerRed;
+    // currentPlayer = null;
     winner = null;
 
     //TODO
@@ -105,65 +103,62 @@ $(function() {
       EMPTY, EMPTY, EMPTY, EMPTY,
       EMPTY, EMPTY, EMPTY, EMPTY,
       EMPTY, EMPTY, EMPTY, EMPTY
-      ];
+    ];
+  }
+
+    //TODO Should this be inline more?
+  $(document).on('click', '#board .square', function(i) {
+    var thisSquare = $(this);
+    if(!thisSquare.hasClass('clicked')){
+      thisSquare.addClass('clicked');
+      var positionNumber = $(i.currentTarget).index();
+      positions[positionNumber]  = currentPlayer;
+
+  var o;
+  var positionIndex;
+
+  var alreadyClicked = [];
+
+  if (currentPlayer == playerRed) {
+    n = winConditions.length;
+    for(i = 0; i < n; i++){
+      winBlockRed = [];
+      for( o = 0; o < winConditions[i].length; o++){
+          positionIndex = winConditions[i][o];
+        winBlockRed.push(positions[positionIndex]);
+        alreadyClicked.push(positionIndex[positionIndex]);
+      }
+
+      if(winBlockRed[0] === "red" &&
+      winBlockRed[1] === "red" &&
+      winBlockRed[2] === "red" &&
+      winBlockRed[3] === "red") {
+
+        redWins();
+      }
     }
-
-    $(document).on('click', '#board .square', function(i) {
-      var thisSquare = $(this);
-      if(!thisSquare.hasClass('clicked')){
-        thisSquare.addClass('clicked');
-    var positionNumber = $(i.currentTarget).index();
-    positions[positionNumber]  = currentPlayer;
-
-    var o;
-    var positionIndex;
-
-    var alreadyClicked = [];
-
-    if (currentPlayer == playerRed) {
+  }
+    if (currentPlayer == playerBlue) {
       n = winConditions.length;
       for(i = 0; i < n; i++){
-        winBlockRed = [];
+        winBlockBlue = [];
         for( o = 0; o < winConditions[i].length; o++){
-            positionIndex = winConditions[i][o];
-          winBlockRed.push(positions[positionIndex]);
+          positionIndex = winConditions[i][o];
+          winBlockBlue.push(positions[positionIndex]);
           alreadyClicked.push(positionIndex[positionIndex]);
         }
 
-        if(winBlockRed[0] === "red" &&
-        winBlockRed[1] === "red" &&
-        winBlockRed[2] === "red" &&
-        winBlockRed[3] === "red") {
+        if(winBlockBlue[0] === "blue" &&
+        winBlockBlue[1] === "blue" &&
+        winBlockBlue[2] === "blue" &&
+        winBlockBlue[3] === "blue") {
 
-          redWins();
-          //stopUpdatingBoard();
-          break;
+          blueWins();
         }
       }
     }
-      if (currentPlayer == playerBlue) {
-        n = winConditions.length;
-        for(i = 0; i < n; i++){
-          winBlockBlue = [];
-          for( o = 0; o < winConditions[i].length; o++){
-            positionIndex = winConditions[i][o];
-            winBlockBlue.push(positions[positionIndex]);
-            alreadyClicked.push(positionIndex[positionIndex]);
-          }
-
-          if(winBlockBlue[0] === "blue" &&
-          winBlockBlue[1] === "blue" &&
-          winBlockBlue[2] === "blue" &&
-          winBlockBlue[3] === "blue") {
-
-            blueWins();
-            //stopUpdatingBoard();
-            break;
-          }
-        }
-      }
-    //update the positions and current player
-    $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
+  //update the positions and current player
+  $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
     //Check for tie
     if (checkForTie()){
 
