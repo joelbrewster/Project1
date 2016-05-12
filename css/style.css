@@ -3,19 +3,19 @@ body {
   min-width: 500px;
   font-family: monospace;
   font-size: 1.3em;
-	font-style: normal;
-	font-variant: normal;
+  font-style: normal;
+  font-variant: normal;
   background: #C7C7C7;
 }
 
-#cover{
-  background-color: rgba(0, 0, 0, 0.0);
+.cover{
+  background-color: rgba(1, 1, 1, .0);
   height: 600px;
-  width: 800px;
+  width: 520px;
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
+  top: -2%;
+  left: -2%;
+  z-index: 1;
 }
 
 div {
@@ -29,7 +29,7 @@ h1 {
   color: black;
   color: rgba(0, 0, 0, 0.7);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-z-index: 2;
+  z-index: 2;
 }
 
 span {
@@ -46,7 +46,7 @@ button {
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 button:hover {
   color: black ;

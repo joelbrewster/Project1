@@ -47,7 +47,7 @@ $(function() {
 
     if (winner == 'red' || 'blue') {
       console.log("board");
-      $('#board').css('position', 'relative').append('<div id="cover"></div>');
+      $('#board').css('position', 'relative').append('<div class="cover"></div>');
     }
   }
 
@@ -64,11 +64,10 @@ $(function() {
   }
 
   function setNextTurn(){
-    // if (currentPlayer === null) {
-    //   currentPlayer = playerRed;
-    // }
-    // else
-    if (currentPlayer === playerRed) {
+    if (currentPlayer === null) {
+      currentPlayer = playerRed;
+    }
+    else if (currentPlayer === playerRed) {
       currentPlayer = playerBlue;
     }
     else {
@@ -76,29 +75,20 @@ $(function() {
     }
 
     if(!winner){
-      $('#messages').text(currentPlayer).append("'s turn")
-      .css({
-        'color': '#282828',
-      });
+      $('#messages').text(currentPlayer).append("'s turn");
     }
   }
 
   function redWins(){
     winBlockRed = [];
-    $('#messages').text("Red wins!")
-      .css({
-        'color': '#AD4646',
-      });
+    $('#messages').text("Red wins!");
     winner = 'red';
     stopUpdatingBoard();
   }
 
   function blueWins(){
     winBlockBlue = [];
-    $('#messages').text("Blue wins!")
-      .css({
-        'color': '#7BB0C0',
-      });
+    $('#messages').text("Blue wins!");
     winner = 'blue';
     stopUpdatingBoard();
   }
@@ -109,14 +99,11 @@ $(function() {
     currentPlayer = playerRed;
     winner = null;
 
-    $('#cover').css('display', 'none');
+    $('.cover').css('display', 'none');
     $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
 
     //Add messages to start again
-    $('#messages').text(currentPlayer).append("'s turn")
-      .css({
-        'color': '#282828',
-      });
+    $('#messages').text(currentPlayer).append("'s turn");
 
     EMPTY = '';
     positions = [
@@ -182,10 +169,7 @@ $(function() {
       //Check for tie
       if (checkForTie()){
 
-        $('#messages').text("It's a tie!")
-          .css({
-            'color': '#A0B579',
-          });
+        $('#messages').text("It's a tie!");
       } else {
         setNextTurn();
       }
