@@ -168,9 +168,6 @@ button:hover {
   padding: 20px;
 }
 
-/*Change @media queries for smaller size screens*/
-//TODO
-
 .conf-cont {
   position: relative;
   width: 100%;
@@ -1645,5 +1642,3 @@ button:hover {
     opacity: 1.0;
   }
 }
-
-
