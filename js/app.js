@@ -78,7 +78,7 @@ $(function() {
     if(!winner){
       $('#messages').text(currentPlayer).append("'s turn")
       .css({
-        'color': '#1D1D1D',
+        'color': '#282828',
       });
     }
   }
@@ -115,7 +115,7 @@ $(function() {
     //Add messages to start again
     $('#messages').text(currentPlayer).append("'s turn")
       .css({
-        'color': '#1D1D1D',
+        'color': '#282828',
       });
 
     EMPTY = '';
@@ -184,7 +184,7 @@ $(function() {
 
         $('#messages').text("It's a tie!")
           .css({
-            'color': '#BC8CAC',
+            'color': '#A0B579',
           });
       } else {
         setNextTurn();
