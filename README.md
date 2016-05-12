@@ -1,6 +1,8 @@
 # Tic Tac Toe
 
 Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
+Link for the js confetti
+http://codepen.io/Event_Horizon/pen/wBKVQN
 
 ## Rules
 - Player 1 goes first.
