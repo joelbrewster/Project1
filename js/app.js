@@ -60,7 +60,10 @@ $(function() {
 
   }
   function setNextTurn(){
-    if (currentPlayer === playerRed) {
+    if (currentPlayer === null) {
+      currentPlayer = playerRed;
+    }
+    else if (currentPlayer === playerRed) {
       currentPlayer = playerBlue;
     }
     else {
@@ -77,6 +80,7 @@ $(function() {
     $('#messages').text("Red wins!").css('color','#FA5048');
     stopUpdatingBoard();
     winner = 'Red';
+    console.log("Winner red");
   }
 
   function blueWins(){
@@ -132,7 +136,7 @@ $(function() {
         winBlockRed[3] === "red") {
 
           redWins();
-          stopUpdatingBoard();
+          //stopUpdatingBoard();
           break;
         }
       }
@@ -153,7 +157,7 @@ $(function() {
           winBlockBlue[3] === "blue") {
 
             blueWins();
-            stopUpdatingBoard();
+            //stopUpdatingBoard();
             break;
           }
         }
