@@ -5,6 +5,7 @@ $(function() {
       document.getElementById('rule-modal').style.display = "none";
     };
   };
+
   //Player
   var moves = 0;
   var playerRed = 'red';
@@ -43,8 +44,11 @@ $(function() {
   //When a player wins
   //When all squares are full
   function stopUpdatingBoard(){
-    //Stop click listener
-    $(document).off('click', '#board .square');
+
+    if (winner == 'red' || 'blue') {
+      console.log("board");
+      $('#board').css('position', 'relative').append('<div id="cover"></div>');
+    }
   }
 
   function checkForTie(){
@@ -57,8 +61,8 @@ $(function() {
       }
     }
     return isTie;
-
   }
+
   function setNextTurn(){
     if (currentPlayer === null) {
       currentPlayer = playerRed;
@@ -77,26 +81,30 @@ $(function() {
 
   function redWins(){
     winBlockRed = [];
-    $('#messages').text("Red wins!").css('color','#FA5048');
-    winner = 'Red';
+    $('#messages').text("Red wins!");
+    winner = 'red';
     stopUpdatingBoard();
   }
 
   function blueWins(){
     winBlockBlue = [];
-    $('#messages').text("Blue wins!").css('color','#1B75B7');
-    winner = 'Blue';
+    $('#messages').text("Blue wins!");
+    winner = 'blue';
     stopUpdatingBoard();
   }
 
   $('#restart').on('click', restartGame);
   function restartGame(){
 
-    $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
-    // currentPlayer = null;
+    currentPlayer = playerRed;
     winner = null;
 
-    //TODO
+    $('#cover').css('display', 'none');
+    $('#board .square').removeClass('clicked').removeClass('red').removeClass('blue');
+
+    //Add messages to start again
+    $('#messages').text(currentPlayer).append("'s turn");
+
     EMPTY = '';
     positions = [
       EMPTY, EMPTY, EMPTY, EMPTY,
@@ -106,7 +114,6 @@ $(function() {
     ];
   }
 
-    //TODO Should this be inline more?
   $(document).on('click', '#board .square', function(i) {
     var thisSquare = $(this);
     if(!thisSquare.hasClass('clicked')){
@@ -114,57 +121,57 @@ $(function() {
       var positionNumber = $(i.currentTarget).index();
       positions[positionNumber]  = currentPlayer;
 
-  var o;
-  var positionIndex;
+      var o;
+      var positionIndex;
 
-  var alreadyClicked = [];
+      var alreadyClicked = [];
 
-  if (currentPlayer == playerRed) {
-    n = winConditions.length;
-    for(i = 0; i < n; i++){
-      winBlockRed = [];
-      for( o = 0; o < winConditions[i].length; o++){
-          positionIndex = winConditions[i][o];
-        winBlockRed.push(positions[positionIndex]);
-        alreadyClicked.push(positionIndex[positionIndex]);
-      }
+      if (currentPlayer == playerRed) {
+        n = winConditions.length;
+        for(i = 0; i < n; i++){
+          winBlockRed = [];
+          for( o = 0; o < winConditions[i].length; o++){
+            positionIndex = winConditions[i][o];
+            winBlockRed.push(positions[positionIndex]);
+            alreadyClicked.push(positionIndex[positionIndex]);
+          }
 
-      if(winBlockRed[0] === "red" &&
-      winBlockRed[1] === "red" &&
-      winBlockRed[2] === "red" &&
-      winBlockRed[3] === "red") {
+          if(winBlockRed[0] === "red" &&
+          winBlockRed[1] === "red" &&
+          winBlockRed[2] === "red" &&
+          winBlockRed[3] === "red") {
 
-        redWins();
-      }
-    }
-  }
-    if (currentPlayer == playerBlue) {
-      n = winConditions.length;
-      for(i = 0; i < n; i++){
-        winBlockBlue = [];
-        for( o = 0; o < winConditions[i].length; o++){
-          positionIndex = winConditions[i][o];
-          winBlockBlue.push(positions[positionIndex]);
-          alreadyClicked.push(positionIndex[positionIndex]);
-        }
-
-        if(winBlockBlue[0] === "blue" &&
-        winBlockBlue[1] === "blue" &&
-        winBlockBlue[2] === "blue" &&
-        winBlockBlue[3] === "blue") {
-
-          blueWins();
+            redWins();
+          }
         }
       }
-    }
-  //update the positions and current player
-  $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
-    //Check for tie
-    if (checkForTie()){
+      if (currentPlayer == playerBlue) {
+        n = winConditions.length;
+        for(i = 0; i < n; i++){
+          winBlockBlue = [];
+          for( o = 0; o < winConditions[i].length; o++){
+            positionIndex = winConditions[i][o];
+            winBlockBlue.push(positions[positionIndex]);
+            alreadyClicked.push(positionIndex[positionIndex]);
+          }
 
-      $('#messages').text("It's a tie!");
+          if(winBlockBlue[0] === "blue" &&
+          winBlockBlue[1] === "blue" &&
+          winBlockBlue[2] === "blue" &&
+          winBlockBlue[3] === "blue") {
+
+            blueWins();
+          }
+        }
+      }
+      //update the positions and current player
+      $('#board .square:eq(' + positionNumber + ')').addClass(currentPlayer);
+      //Check for tie
+      if (checkForTie()){
+
+        $('#messages').text("It's a tie!");
       } else {
-      setNextTurn();
+        setNextTurn();
       }
     }
   });
