@@ -1,10 +1,10 @@
 # Tic Tac Toe
 
 Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
-[Link](http://codepen.io/Event_Horizon/pen/wBKVQN) for the js confetti
-[Link](https://www.youtube.com/watch?v=waRq6ZR7BNE) to the yay children sound.
-[Link](https://www.youtube.com/watch?v=NeB-5yJkcYs) to the click sound.
-[link](https://www.youtube.com/watch?v=j66sy39ZSIU) to the other click sound.
+- [Link](http://codepen.io/Event_Horizon/pen/wBKVQN) for the js confetti.
+- [Link](https://www.youtube.com/watch?v=waRq6ZR7BNE) to the yay children sound.
+- [Link](https://www.youtube.com/watch?v=NeB-5yJkcYs) to the click sound.
+- [link](https://www.youtube.com/watch?v=j66sy39ZSIU) to the other click sound.
 
 
 ## Rules
@@ -86,7 +86,6 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
   │         Display player turn with an overlay for a few seconds.          │
   │ Mouse hover changes the square color to match the player. Click plays a │
   │                    sound and changes the div color.                     │
-  │                                                                         │
 ┌─┴─────────────────┬───────────────────┬───────────────────┬───────────────┴──┐
 │░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░│
 │░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░│
@@ -168,7 +167,9 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
-└───────────────────┴───────────────────┴───────────────────┴──────────────────┘
+└─┌──────────────────────────────────────────────────────────────────────────┐─┘
+  |    Looks a bit clunky, maybe try just a message under the board          |
+  └──────────────────────────────────────────────────────────────────────────┘
 
 
   ┌──────────────────────────────────────────────────────────────────────────┐
@@ -217,8 +218,7 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
  ```
 
 ##Reflection
-If I could redo it over again.
-I'd definately redo the javascript board logic with modulo.
+If I could redo it over again, I'd definately redo the javascript board logic with modulo.
 
 ```
 var rowLength = 4;
@@ -264,6 +264,6 @@ for(var i=0, n=rowLength; i<n; i++){
     }
 ```
 
-## Reflection
 - I jumped in too quick to start and didn't think about how to go over the board well enough.
 - Don't eat takeout burrito/wraps for dinner when you're busy with study.
+- Look into getting the sounds implemented and some music.
