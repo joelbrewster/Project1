@@ -2,6 +2,9 @@
 
 Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
 [Link](http://codepen.io/Event_Horizon/pen/wBKVQN) for the js confetti
+[Link](https://www.youtube.com/watch?v=waRq6ZR7BNE) to the yay children sound.
+[Link](https://www.youtube.com/watch?v=NeB-5yJkcYs) to the click sound.
+[link](https://www.youtube.com/watch?v=j66sy39ZSIU) to the other click sound.
 
 ## Rules
 - Player 1 goes first.
