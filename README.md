@@ -1,6 +1,6 @@
-# Tic Tac Toe
+# Red vs Blue
 
-Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
+Here's a link to the [Red vs Blue](http://joelbrewster.com/redvsblue/) project.
 - [Link](http://codepen.io/Event_Horizon/pen/wBKVQN) for the js confetti.
 - [Link](https://www.youtube.com/watch?v=waRq6ZR7BNE) to the yay children sound.
 - [Link](https://www.youtube.com/watch?v=NeB-5yJkcYs) to the click sound.
@@ -27,11 +27,11 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
 - All squares full = tie.
 
 ## Extra
-- Animations/blend effects for mouseover, selections, win conditions etc.
+- Animations/blend effects for mouse over, selections, win conditions etc.
 - Add sounds for the buttons, click elements and some animations.
 
 
-## Wireframe information
+## Wire frame information
 
 ```
 
@@ -218,7 +218,7 @@ Here's a link to the [tic tac toe](http://joelbrewster.com/tictactoe/) project.
  ```
 
 ##Reflection
-If I could redo it over again, I'd definately redo the javascript board logic with modulo.
+If I could redo it over again, I'd definitely redo the JavaScript board logic with modulo.
 
 ```
 var rowLength = 4;
